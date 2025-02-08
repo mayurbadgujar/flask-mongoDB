@@ -37,6 +37,11 @@ def success():
     return "Data submitted successfully!"
 
 
+@app.route('/todo')
+def index():
+    return render_template('todo.html')
+
+
 @app.route('/submittodoitem', methods=["POST"])
 def todoitem():
     itemName = request.form.get('itemName')
