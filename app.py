@@ -38,7 +38,7 @@ def success():
 
 
 @app.route('/todo')
-def index():
+def todo():
     return render_template('todo.html')
 
 
