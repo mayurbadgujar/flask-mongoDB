@@ -16,29 +16,5 @@
         <br>
         <button type="submit">Submit</button>
     </form>
-
-    <!-- <script>
-        document.getElementById('todoForm').onsubmit = function(event) {
-            event.preventDefault();
-            const itemName = document.getElementById('itemName').value;
-            const itemDescription = document.getElementById('itemDescription').value;
-
-            fetch('/submittodoitem', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({itemName, itemDescription}),
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                alert('To-Do item submitted successfully!');
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-        };
-    </script> -->
 </body>
 </html>
