@@ -48,8 +48,9 @@ def todoitem():
     description = request.form.get('itemDescription')
     itemID=request.form.get('itemID')
     itemUUID= request.form.get("itemUUID")
+    itemHash=request.form.get("itemHash")
     # Insert data into MongoDB
-    data = {"itemName": itemName, "itemDescription": description, "itemID":itemID, "itemUUID":itemUUID}
+    data = {"itemName": itemName, "itemDescription": description, "itemID":itemID, "itemUUID":itemUUID,"itemHash":itemHash}
     collection.insert_one(data)
 
     # Redirect to success page
