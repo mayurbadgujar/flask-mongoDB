@@ -37,5 +37,17 @@ def success():
     return "Data submitted successfully!"
 
 
+@app.route('/submittodoitem', methods=["POST"])
+def todoitem():
+    itemName = request.form.get('itemName')
+    description = request.form.get('itemDescription')
+
+    # Insert data into MongoDB
+    data = {"itemName": itemName, "itemDescription": description}
+    collection.insert_one(data)
+
+    # Redirect to success page
+    return redirect(url_for('success'))
+
 if __name__ == '__main__':
     app.run(debug=True)
