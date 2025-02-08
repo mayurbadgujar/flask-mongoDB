@@ -46,9 +46,9 @@ def todo():
 def todoitem():
     itemName = request.form.get('itemName')
     description = request.form.get('itemDescription')
-
+    itemID=request.form.get('itemID')
     # Insert data into MongoDB
-    data = {"itemName": itemName, "itemDescription": description}
+    data = {"itemName": itemName, "itemDescription": description, "itemID":itemID}
     collection.insert_one(data)
 
     # Redirect to success page
