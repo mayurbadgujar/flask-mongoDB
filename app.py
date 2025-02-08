@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, jsonify, render_template, request, redirect, url_for, flash
 from pymongo import MongoClient
 
 app = Flask(__name__)
@@ -52,7 +52,7 @@ def todoitem():
     collection.insert_one(data)
 
     # Redirect to success page
-    return redirect(url_for('success'))
+    return jsonify({"message": "To-Do item added successfully!"}), 201
 
 if __name__ == '__main__':
     app.run(debug=True)
