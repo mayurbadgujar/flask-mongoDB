@@ -14,7 +14,6 @@ app.get('/todo', (req, res) => {
 
 app.post('/submit', async (req, res) => {
     try {
-        console.log(req.body);
         const response = await axios.post('http://127.0.0.1:5000/submit', req.body);
         res.send(response.data);
     } catch (error) {

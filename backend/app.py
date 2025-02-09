@@ -20,8 +20,6 @@ def index():
 @app.route('/submit', methods=["POST"])
 def submit():
     try:
-        # Get form data
-        
         # Insert data into MongoDB
         data = request.json
         collection.insert_one(data)
