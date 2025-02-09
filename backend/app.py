@@ -10,47 +10,43 @@ collection = db.mycollection
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    cursor = collection.find()
+    data = list(cursor)
+    for item in data:
+        item['_id'] = str(item['_id'])
+    return jsonify(data)
 
 
-@app.route('/submit', methods=['POST'])
+@app.route('/submit', methods=["POST"])
 def submit():
     try:
         # Get form data
-        name = request.form.get('name')
-        email = request.form.get('email')
-
+        
         # Insert data into MongoDB
-        data = {"name": name, "email": email}
+        data = request.json
         collection.insert_one(data)
 
         # Redirect to success page
-        return redirect(url_for('success'))
+        return jsonify({"message": "Data submitted"}), 201
     
     except Exception as e:
         # Display error on the same page
         flash(f"Error: {str(e)}", "error")
         return redirect(url_for('index'))
+    
 
-@app.route('/success')
-def success():
-    return "Data submitted successfully!"
-
-
-@app.route('/todo')
+@app.route('/todo', methods=["GET"])
 def todo():
-    return render_template('todo.html')
+    cursor = collection.find()
+    data = list(cursor)
+    for item in data:
+        item['_id'] = str(item['_id'])
+    return jsonify(data)
 
 
 @app.route('/submittodoitem', methods=["POST"])
 def todoitem():
-    itemName = request.form.get('itemName')
-    description = request.form.get('itemDescription')
-    itemID=request.form.get('itemID')
-    itemUUID= request.form.get("itemUUID")
-    itemHash=request.form.get("itemHash")
-    # Insert data into MongoDB
-    data = {"itemName": itemName, "itemDescription": description, "itemID":itemID, "itemUUID":itemUUID,"itemHash":itemHash}
+    data = request.json
     collection.insert_one(data)
 
     # Redirect to success page

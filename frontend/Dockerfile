@@ -2,11 +2,9 @@ FROM node:18
 
 WORKDIR /server
 
-COPY package.json package-lock.json ./
+COPY . .
 
 RUN npm install
-
-COPY . .
 
 EXPOSE 3000
 
