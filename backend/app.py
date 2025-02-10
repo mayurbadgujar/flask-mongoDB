@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template, request, redirect, url_for, flash
+from flask import Flask, jsonify, request, redirect, url_for, flash
 from pymongo import MongoClient
 
 app = Flask(__name__)
@@ -51,4 +51,4 @@ def todoitem():
     return jsonify({"message": "To-Do item added successfully!"}), 201
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run( debug=True, host='0.0.0.0', port=5000)
