@@ -14,7 +14,7 @@ app.get('/todo', (req, res) => {
 
 app.post('/submit', async (req, res) => {
     try {
-        const response = await axios.post('http://127.0.0.1:5000/submit', req.body);
+        const response = await axios.post('http://backend:5000/submit', req.body);
         res.send(response.data);
     } catch (error) {
         res.status(500).send('Error submitting form');
@@ -24,7 +24,7 @@ app.post('/submit', async (req, res) => {
 
 app.post('/submittodoitem', async (req, res) => {
     try {
-        const response = await axios.post('http://127.0.0.1:5000/submittodoitem', req.body);
+        const response = await axios.post('http://backend:5000/submittodoitem', req.body);
         debugger;
         res.send(response.data);
     } catch (error) {
