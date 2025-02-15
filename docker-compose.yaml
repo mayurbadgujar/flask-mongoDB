@@ -7,8 +7,6 @@ services:
       - "5000:5000"
     volumes:
       - ./backend:/app
-    environment:
-      - FLASK_ENV=development
     networks:
       - app-network
     depends_on:
@@ -23,7 +21,7 @@ services:
       - ./frontend:/server
       - /server/node_modules
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=http://backend-host:5000
     networks:
       - app-network
 
