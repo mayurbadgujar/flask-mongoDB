@@ -2,7 +2,7 @@ const express = require('express')
 const app = express();
 const axios = require('axios');
 
-const URL = process.env.NODE_ENV || "http://backend-host:5000"
+const URL = process.env.NODE_ENV || "http://localhost:5000"
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('templates'));
