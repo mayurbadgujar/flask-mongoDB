@@ -1,0 +1,5 @@
+backend flask app which is connected to mongodb.
+frontend nodejs app
+created docker file for both frontend and backend 
+docker compose file
+YAML file for both
